@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Play — Untitled Snake Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">UNTITLED <span class="dot">SNAKE GAME</span></div>
+    <div class="nav-links">
+        <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+        <a href="how-to-play.html" class="nav-link">How to Play</a>
+    </div>
+</nav>
+
+<header class="htp-hero">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="food-pellet pellet-1" aria-hidden="true"></div>
+    <div class="food-pellet pellet-2" aria-hidden="true"></div>
+    <div class="food-pellet pellet-3" aria-hidden="true"></div>
+    <p class="htp-eyebrow">Guide</p>
+    <h1 class="htp-title">HOW TO <span>PLAY</span></h1>
+    <p class="htp-sub">Everything you need to know before you drop into the arena.</p>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+</header>
+
+<main class="htp-content">
+
+    <section class="htp-section">
+        <div class="htp-section-header">
+            <div class="section-icon icon-green">🎮</div>
+            <h2 class="section-title">Controls</h2>
+        </div>
+        <div class="controls-grid">
+            <div>
+                <p class="controls-group-label">Keyboard — WASD</p>
+                <div class="wasd-block">
+                    <div class="key-row">
+                        <div class="key highlight">W</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key highlight">A</div>
+                        <div class="key highlight">S</div>
+                        <div class="key highlight">D</div>
+                    </div>
+                </div>
+                <ul class="key-desc-list">
+                    <li><span class="key-badge">W</span> Move Up</li>
+                    <li><span class="key-badge">S</span> Move Down</li>
+                    <li><span class="key-badge">A</span> Move Left</li>
+                    <li><span class="key-badge">D</span> Move Right</li>
+                    <li><span class="key-badge">ESC</span> Pause</li>
+                </ul>
+            </div>
+            <div>
+                <p class="controls-group-label">Mouse</p>
+                <div class="mouse-illustration">
+                    <div class="mouse-icon"></div>
+                    <div class="mouse-arrow">Move the mouse in any direction.<br>Your snake follows the cursor.</div>
+                </div>
+                <ul class="key-desc-list">
+                    <li><span class="key-badge">MOVE</span> Steer snake</li>
+                    <li><span class="key-badge">CLICK</span> Boost speed</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="htp-section">
+        <div class="htp-section-header">
+            <div class="section-icon icon-green">🐍</div>
+            <h2 class="section-title">Objective</h2>
+        </div>
+        <ul class="rules-list">
+            <li>
+                <div class="rule-bullet" style="background:#1a3d1a; color:#4ca64c;">▶</div>
+                Eat the glowing food pellets scattered across the arena to grow longer and earn points.
+            </li>
+            <li>
+                <div class="rule-bullet" style="background:#1a3d1a; color:#4ca64c;">▶</div>
+                The longer your snake, the higher your score — and the harder it is to survive.
+            </li>
+            <li>
+                <div class="rule-bullet" style="background:#1a3d1a; color:#4ca64c;">▶</div>
+                Outlast all other players in the arena to claim the top spot on the leaderboard.
+            </li>
+        </ul>
+    </section>
+
+    <section class="htp-section">
+        <div class="htp-section-header">
+            <div class="section-icon icon-gold">⬤</div>
+            <h2 class="section-title">Food &amp; Scoring</h2>
+        </div>
+        <table class="food-table">
+            <thead>
+            <tr>
+                <th>Food</th>
+                <th>Effect</th>
+                <th>Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><span class="food-pellet-dot" style="background:#f2c14e;"></span>Standard Pellet</td>
+                <td>Grow +1 segment</td>
+                <td><span class="score-chip">+10 PTS</span></td>
+            </tr>
+            <tr>
+                <td><span class="food-pellet-dot" style="background:#d96a8a;"></span>Rare Pellet</td>
+                <td>Grow +3 segments</td>
+                <td><span class="score-chip">+50 PTS</span></td>
+            </tr>
+            <tr>
+                <td><span class="food-pellet-dot" style="background:#6ab4d9;"></span>Remnant</td>
+                <td>Left by a dead snake — worth eating fast</td>
+                <td><span class="score-chip">+5 PTS EA.</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="food-note">* Food respawns at a random location after being eaten.</p>
+    </section>
+
+    <section class="htp-section">
+        <div class="htp-section-header">
+            <div class="section-icon icon-pink">💀</div>
+            <h2 class="section-title">Death &amp; Respawn</h2>
+        </div>
+        <div class="death-steps">
+            <div class="death-step">
+                <span class="step-num">01</span>
+                <p class="step-body">Your snake dies if it <strong>hits a wall</strong>, <strong>runs into its own body</strong>, or <strong>collides with another player's snake</strong>.</p>
+            </div>
+            <div class="death-step">
+                <span class="step-num">02</span>
+                <p class="step-body">A <strong>Game Over</strong> screen appears showing your final score, length, and arena rank.</p>
+            </div>
+            <div class="death-step">
+                <span class="step-num">03</span>
+                <p class="step-body">Wait out the short <strong>respawn cooldown</strong>, then hit <strong>Play Again</strong> to re-enter at a random spawn point.</p>
+            </div>
+            <div class="death-step">
+                <span class="step-num">04</span>
+                <p class="step-body">Your body segments become <strong>collectible remnants</strong> for other players to eat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="htp-section">
+        <div class="htp-section-header">
+            <div class="section-icon icon-blue">💡</div>
+            <h2 class="section-title">Tips</h2>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <p class="tip-card-label">Stay near the edge early</p>
+                <p class="tip-card-text">The arena center is chaotic. Hug the walls while you're small and farm pellets safely.</p>
+            </div>
+            <div class="tip-card">
+                <p class="tip-card-label">Cut off opponents</p>
+                <p class="tip-card-text">Curl around a longer snake to block their path. They'll crash into you — and you'll collect all their remnants.</p>
+            </div>
+            <div class="tip-card">
+                <p class="tip-card-label">Watch the mini-map</p>
+                <p class="tip-card-text">The mini-map in the corner shows nearby threats. Check it often so you don't get surprised.</p>
+            </div>
+            <div class="tip-card">
+                <p class="tip-card-label">Your name helps</p>
+                <p class="tip-card-text">Your name floats above your head. A memorable name makes you a target — pick wisely.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="htp-cta">
+        <a href="index.html" class="play-btn">
+            PLAY NOW &nbsp;▶
+        </a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <p class="footer-text">Made by <span class="footer-name">Denis</span> &amp; <span class="footer-name">Leonardo</span> · Software Development 2026</p>
+</footer>
+
+</body>
+</html>
