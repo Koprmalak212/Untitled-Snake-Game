@@ -1,10 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Untitled Snake Game</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
@@ -12,6 +15,70 @@
     <link rel="manifest" href="/favicon/site.webmanifest" />
 </head>
 <body>
-<canvas id="canvas"></canvas>
+
+<nav class="navbar">
+    <div class="nav-logo">UNTITLED <span class="dot">SNAKE GAME</span></div>
+    <div class="nav-links">
+        <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+        <a href="#how-to-play" class="nav-link">How to Play</a>
+    </div>
+</nav>
+
+<main class="hero">
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <div class="food-pellet pellet-1" aria-hidden="true"></div>
+    <div class="food-pellet pellet-2" aria-hidden="true"></div>
+    <div class="food-pellet pellet-3" aria-hidden="true"></div>
+    <div class="food-pellet pellet-4" aria-hidden="true"></div>
+    <div class="food-pellet pellet-5" aria-hidden="true"></div>
+
+    <div class="hero-content">
+        <p class="hero-eyebrow">Multiplayer Snake</p>
+        <h1 class="hero-title"><span class="title-small">UNTITLED</span><br><span class="title-dot">SNAKE GAME</span></h1>
+        <p class="hero-tagline">Eat. Grow. Dominate.</p>
+        <p class="hero-sub">Real players. One arena. Last snake standing.</p>
+        <div class="name-field">
+            <label for="playerName" class="name-label">YOUR NAME</label>
+            <input
+                    type="text"
+                    id="playerName"
+                    class="name-input"
+                    placeholder="Enter name..."
+                    maxlength="20"
+                    autocomplete="off"
+                    spellcheck="false"
+            />
+        </div>
+
+        <a href="join.html" class="play-btn">
+            <span class="btn-label">PLAY NOW</span>
+            <span class="btn-arrow">▶</span>
+        </a>
+    </div>
+</main>
+
+<section class="features" id="how-to-play">
+    <div class="feature-card">
+        <div class="feature-icon green">◈</div>
+        <h3 class="feature-title">Smooth Controls</h3>
+        <p class="feature-desc">Steer with WASD or your mouse — whatever feels natural.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon pink">◈</div>
+        <h3 class="feature-title">Live Leaderboard</h3>
+        <p class="feature-desc">Scores update in real time. Climb into the top 10.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon green">◈</div>
+        <h3 class="feature-title">Multiplayer Arena</h3>
+        <p class="feature-desc">Crash into others to eliminate them. Don't get cut off.</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p class="footer-text">Made by <span class="footer-name">Denis</span> &amp; <span class="footer-name">Leonardo</span> · Software Development 2026</p>
+</footer>
+
 </body>
 </html>
