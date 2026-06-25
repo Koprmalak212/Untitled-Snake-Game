@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+</style>
+</helmet>
+
+<!-- ============ PAGE TITLE ============ -->
+<div style="position:absolute;left:80px;top:24px;width:900px">
+  <div style="font:400 30px 'Architects Daughter',cursive;color:#2c2c2c;display:flex;align-items:center;gap:12px">
+    <span style="display:inline-block;width:22px;height:22px;background:#4ca64c;border:2.5px solid #2c2c2c;border-radius:5px"></span>
+    UNTITLED SNAKE GAME — Wireframes
+  </div>
+  <div style="font:13px 'Space Mono',monospace;color:#8a8880;margin-top:4px">Multiplayer arcade · web app flow · low-fi exploration</div>
+</div>
+
+<!-- ============ SECTION: CORE FLOW ============ -->
+<div style="position:absolute;left:80px;top:96px;font:400 17px 'Architects Daughter',cursive;color:#6b6b6b;letter-spacing:1px">— CORE PLAYER FLOW —</div>
+
+<!-- FRAME 1: HOME -->
+<div style="position:absolute;left:80px;top:150px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">01 · Home / Landing</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1.5px dashed #cdcabf">
+      <div style="display:flex;align-items:center;gap:7px;font-size:16px"><span style="width:14px;height:14px;background:#4ca64c;border:2px solid #2c2c2c;border-radius:3px"></span>UNTITLED SNAKE</div>
+      <div style="display:flex;gap:14px;font-size:13px;color:#6b6b6b">Leaderboard&nbsp;&nbsp;How to Play</div>
+    </div>
+    <div style="position:relative;padding:30px 24px 34px;text-align:center;background:repeating-linear-gradient(0deg,transparent 0 26px,#f1efe7 26px 27px),repeating-linear-gradient(90deg,transparent 0 26px,#f1efe7 26px 27px)">
+      <span style="position:absolute;top:24px;left:30px;width:11px;height:11px;background:#d96a8a;border:1.5px solid #2c2c2c;border-radius:3px"></span>
+      <span style="position:absolute;top:80px;right:40px;width:11px;height:11px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:3px"></span>
+      <span style="position:absolute;bottom:30px;left:50px;width:11px;height:11px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:3px"></span>
+      <div style="display:inline-block;font:11px 'Space Mono',monospace;color:#6b6b6b;border:1.5px solid #b9b7af;border-radius:20px;padding:3px 12px;margin-bottom:14px">MULTIPLAYER SNAKE</div>
+      <div style="height:30px;width:55%;margin:0 auto 8px;background:#dcdacf;border-radius:6px"></div>
+      <div style="height:30px;width:78%;margin:0 auto 14px;background:#2c2c2c;border-radius:6px"></div>
+      <div style="font-size:15px;color:#6b6b6b;margin-bottom:4px">Eat. Grow. Dominate.</div>
+      <div style="font:11px 'Space Mono',monospace;color:#a3a199;margin-bottom:20px">Real players · one arena · last snake standing</div>
+      <div style="max-width:260px;margin:0 auto;text-align:left">
+        <div style="font:10px 'Space Mono',monospace;color:#8a8880;margin-bottom:5px">YOUR NAME</div>
+        <div style="height:38px;border:2px solid #2c2c2c;border-radius:6px;background:#fff;display:flex;align-items:center;padding:0 12px;font-size:14px;color:#bcbab1;margin-bottom:14px">Enter name<span style="border-left:1.5px solid #2c2c2c;height:16px;margin-left:2px;animation:none"></span></div>
+        <div style="height:46px;background:#4ca64c;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:3px 3px 0 #2c2c2c;display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;color:#fff">PLAY NOW ▶</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;padding:18px 16px;border-top:2px solid #2c2c2c;background:#f4f2ea">
+      <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;background:#fff;padding:12px 10px;text-align:center">
+        <div style="width:26px;height:26px;margin:0 auto 8px;background:#e3f0df;border:2px solid #2c2c2c;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;display:flex;align-items:center;justify-content:center;color:#4ca64c">◈</div>
+        <div style="height:9px;width:70%;margin:0 auto 6px;background:#cfcdc3;border-radius:4px"></div>
+        <div style="height:7px;width:90%;margin:0 auto 4px;background:#e0ded4;border-radius:4px"></div>
+        <div style="height:7px;width:80%;margin:0 auto;background:#e0ded4;border-radius:4px"></div>
+      </div>
+      <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;background:#fff;padding:12px 10px;text-align:center">
+        <div style="width:26px;height:26px;margin:0 auto 8px;background:#f6e1e8;border:2px solid #2c2c2c;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;display:flex;align-items:center;justify-content:center;color:#d96a8a">◈</div>
+        <div style="height:9px;width:70%;margin:0 auto 6px;background:#cfcdc3;border-radius:4px"></div>
+        <div style="height:7px;width:90%;margin:0 auto 4px;background:#e0ded4;border-radius:4px"></div>
+        <div style="height:7px;width:80%;margin:0 auto;background:#e0ded4;border-radius:4px"></div>
+      </div>
+      <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;background:#fff;padding:12px 10px;text-align:center">
+        <div style="width:26px;height:26px;margin:0 auto 8px;background:#e3f0df;border:2px solid #2c2c2c;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;display:flex;align-items:center;justify-content:center;color:#4ca64c">◈</div>
+        <div style="height:9px;width:70%;margin:0 auto 6px;background:#cfcdc3;border-radius:4px"></div>
+        <div style="height:7px;width:90%;margin:0 auto 4px;background:#e0ded4;border-radius:4px"></div>
+        <div style="height:7px;width:80%;margin:0 auto;background:#e0ded4;border-radius:4px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAME 2: JOIN / LOBBY -->
+<div style="position:absolute;left:620px;top:150px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">02 · Join / Lobby</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io/join</div>
+    </div>
+    <div style="padding:24px 22px 26px;text-align:center">
+      <div style="height:24px;width:60%;margin:0 auto 4px;background:#2c2c2c;border-radius:5px"></div>
+      <div style="font:11px 'Space Mono',monospace;color:#a3a199;margin-bottom:20px">find a match</div>
+
+      <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:18px">
+        <span style="width:30px;height:30px;background:#e3f0df;border:2px solid #2c2c2c;border-radius:50%"></span>
+        <div style="border:2px solid #2c2c2c;border-radius:20px;padding:5px 16px;font-size:14px;background:#fff">PlayerName_99</div>
+        <span style="font:11px 'Space Mono',monospace;color:#9a988f">edit</span>
+      </div>
+
+      <div style="text-align:left;font:10px 'Space Mono',monospace;color:#8a8880;margin-bottom:6px">SELECT REGION</div>
+      <div style="height:38px;border:2px solid #2c2c2c;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:14px;margin-bottom:18px">Europe — West <span style="color:#6b6b6b">▾</span></div>
+
+      <div style="border:2px solid #2c2c2c;border-radius:8px;background:#fff;padding:12px;margin-bottom:18px;text-align:left">
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+          <div style="width:64px;height:46px;border:2px solid #2c2c2c;border-radius:5px;background:repeating-linear-gradient(45deg,#eceae2 0 6px,#f6f5ef 6px 12px)"></div>
+          <div style="flex:1">
+            <div style="font-size:15px;margin-bottom:6px">Arena #1 — Open</div>
+            <div style="height:10px;border:1.5px solid #2c2c2c;border-radius:6px;background:#f0eee7;overflow:hidden"><div style="width:60%;height:100%;background:#4ca64c"></div></div>
+            <div style="font:10px 'Space Mono',monospace;color:#8a8880;margin-top:4px">12 / 20 players</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <span style="width:24px;height:24px;background:#e3f0df;border:1.5px solid #2c2c2c;border-radius:5px"></span>
+          <span style="width:24px;height:24px;background:#f6e1e8;border:1.5px solid #2c2c2c;border-radius:5px"></span>
+          <span style="width:24px;height:24px;background:#e3f0df;border:1.5px solid #2c2c2c;border-radius:5px"></span>
+          <span style="width:24px;height:24px;background:#eceae2;border:1.5px solid #2c2c2c;border-radius:5px"></span>
+          <span style="width:24px;height:24px;background:#f6e1e8;border:1.5px solid #2c2c2c;border-radius:5px"></span>
+          <span style="width:24px;height:24px;border:1.5px dashed #b9b7af;border-radius:5px;display:flex;align-items:center;justify-content:center;font:9px 'Space Mono';color:#9a988f">+7</span>
+        </div>
+      </div>
+
+      <div style="height:48px;background:#4ca64c;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:3px 3px 0 #2c2c2c;display:flex;align-items:center;justify-content:center;gap:8px;font-size:19px;color:#fff;margin-bottom:10px">ENTER ARENA ▶</div>
+      <div style="font:11px 'Space Mono',monospace;color:#a3a199">● finding best server…</div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAME 3: ARENA / IN-GAME -->
+<div style="position:absolute;left:1160px;top:150px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">03 · Arena (in-game HUD)</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io/play · LIVE</div>
+    </div>
+    <div style="position:relative;height:478px;background:repeating-linear-gradient(0deg,#f2f1ea 0 23px,#ece9df 23px 24px),repeating-linear-gradient(90deg,#f2f1ea 0 23px,#ece9df 23px 24px)">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font:11px 'Space Mono',monospace;color:#b6b4aa;letter-spacing:1px">ARENA · live render</div>
+      <!-- snake body -->
+      <span style="position:absolute;top:200px;left:150px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:200px;left:168px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:200px;left:186px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:218px;left:186px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:236px;left:186px;width:16px;height:16px;background:#3a8f3a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <!-- rival snake -->
+      <span style="position:absolute;top:320px;left:280px;width:14px;height:14px;background:#d96a8a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:320px;left:296px;width:14px;height:14px;background:#d96a8a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:320px;left:312px;width:14px;height:14px;background:#d96a8a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <!-- pellets -->
+      <span style="position:absolute;top:130px;left:300px;width:10px;height:10px;background:#f2c14e;border:1.5px solid #2c2c2c;border-radius:50%"></span>
+      <span style="position:absolute;top:380px;left:120px;width:10px;height:10px;background:#f2c14e;border:1.5px solid #2c2c2c;border-radius:50%"></span>
+
+      <!-- HUD: score -->
+      <div style="position:absolute;top:12px;left:12px;border:2px solid #2c2c2c;background:rgba(252,251,247,.92);border-radius:7px;padding:7px 12px;box-shadow:2px 2px 0 rgba(44,44,44,.15)">
+        <div style="font:9px 'Space Mono',monospace;color:#8a8880">SCORE</div>
+        <div style="font-size:22px;line-height:1">0420</div>
+        <div style="font:9px 'Space Mono',monospace;color:#6b6b6b;margin-top:2px">LEN 24</div>
+      </div>
+      <!-- HUD: live leaderboard -->
+      <div style="position:absolute;top:12px;right:12px;width:150px;border:2px solid #2c2c2c;background:rgba(252,251,247,.93);border-radius:7px;padding:9px;box-shadow:2px 2px 0 rgba(44,44,44,.15)">
+        <div style="font:9px 'Space Mono',monospace;color:#8a8880;margin-bottom:7px">LIVE TOP 5</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><span style="width:14px;height:14px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:3px;font:8px 'Space Mono';display:flex;align-items:center;justify-content:center;color:#fff">1</span><div style="flex:1;height:8px;background:#cfcdc3;border-radius:4px"></div></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><span style="width:14px;height:14px;border:1.5px solid #2c2c2c;border-radius:3px;font:8px 'Space Mono';display:flex;align-items:center;justify-content:center">2</span><div style="flex:1;height:8px;background:#ddd9cf;border-radius:4px"></div></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><span style="width:14px;height:14px;border:1.5px solid #2c2c2c;border-radius:3px;font:8px 'Space Mono';display:flex;align-items:center;justify-content:center">3</span><div style="flex:1;height:8px;background:#ddd9cf;border-radius:4px"></div></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><span style="width:14px;height:14px;border:1.5px solid #2c2c2c;border-radius:3px;font:8px 'Space Mono';display:flex;align-items:center;justify-content:center">4</span><div style="flex:1;height:8px;background:#e6e2d8;border-radius:4px"></div></div>
+        <div style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border:1.5px solid #2c2c2c;border-radius:3px;font:8px 'Space Mono';display:flex;align-items:center;justify-content:center">5</span><div style="flex:1;height:8px;background:#e6e2d8;border-radius:4px"></div></div>
+      </div>
+      <!-- HUD: controls -->
+      <div style="position:absolute;bottom:12px;left:12px;display:flex;flex-direction:column;align-items:center;gap:4px">
+        <span style="width:26px;height:26px;border:2px solid #2c2c2c;border-radius:5px;background:rgba(252,251,247,.9);display:flex;align-items:center;justify-content:center;font-size:13px">W</span>
+        <div style="display:flex;gap:4px">
+          <span style="width:26px;height:26px;border:2px solid #2c2c2c;border-radius:5px;background:rgba(252,251,247,.9);display:flex;align-items:center;justify-content:center;font-size:13px">A</span>
+          <span style="width:26px;height:26px;border:2px solid #2c2c2c;border-radius:5px;background:rgba(252,251,247,.9);display:flex;align-items:center;justify-content:center;font-size:13px">S</span>
+          <span style="width:26px;height:26px;border:2px solid #2c2c2c;border-radius:5px;background:rgba(252,251,247,.9);display:flex;align-items:center;justify-content:center;font-size:13px">D</span>
+        </div>
+      </div>
+      <!-- HUD: minimap -->
+      <div style="position:absolute;bottom:12px;right:12px;width:72px;height:72px;border:2px solid #2c2c2c;border-radius:7px;background:rgba(252,251,247,.9);box-shadow:2px 2px 0 rgba(44,44,44,.15)">
+        <span style="position:absolute;top:24px;left:20px;width:7px;height:7px;background:#4ca64c;border-radius:2px"></span>
+        <span style="position:absolute;top:44px;left:46px;width:6px;height:6px;background:#d96a8a;border-radius:2px"></span>
+        <span style="position:absolute;bottom:5px;right:5px;font:8px 'Space Mono';color:#9a988f">map</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAME 4: GAME OVER -->
+<div style="position:absolute;left:1700px;top:150px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">04 · Game Over / Results</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io/play</div>
+    </div>
+    <div style="position:relative;height:478px;background:repeating-linear-gradient(0deg,#dcdad2 0 23px,#d4d2c8 23px 24px),repeating-linear-gradient(90deg,#dcdad2 0 23px,#d4d2c8 23px 24px);display:flex;align-items:center;justify-content:center">
+      <div style="position:absolute;inset:0;background:rgba(44,44,44,.32)"></div>
+      <div style="position:relative;width:300px;background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:10px;box-shadow:5px 5px 0 rgba(44,44,44,.25);padding:22px 22px 24px;text-align:center">
+        <div style="font:11px 'Space Mono',monospace;color:#d96a8a;letter-spacing:2px;margin-bottom:4px">● ELIMINATED</div>
+        <div style="height:24px;width:70%;margin:0 auto 18px;background:#2c2c2c;border-radius:5px"></div>
+        <div style="display:flex;gap:8px;margin-bottom:18px">
+          <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;padding:8px 4px;background:#fff">
+            <div style="font:8px 'Space Mono';color:#8a8880">SCORE</div>
+            <div style="font-size:18px">0420</div>
+          </div>
+          <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;padding:8px 4px;background:#fff">
+            <div style="font:8px 'Space Mono';color:#8a8880">LENGTH</div>
+            <div style="font-size:18px">24</div>
+          </div>
+          <div style="flex:1;border:2px solid #2c2c2c;border-radius:7px;padding:8px 4px;background:#e3f0df">
+            <div style="font:8px 'Space Mono';color:#8a8880">RANK</div>
+            <div style="font-size:18px">#3</div>
+          </div>
+        </div>
+        <div style="text-align:left;font:9px 'Space Mono';color:#8a8880;margin-bottom:5px">SAVE YOUR SCORE</div>
+        <div style="height:34px;border:2px solid #2c2c2c;border-radius:6px;background:#fff;display:flex;align-items:center;padding:0 10px;font-size:13px;color:#bcbab1;margin-bottom:14px">Name…</div>
+        <div style="height:44px;background:#4ca64c;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:3px 3px 0 #2c2c2c;display:flex;align-items:center;justify-content:center;gap:7px;font-size:17px;color:#fff;margin-bottom:9px">↺ PLAY AGAIN</div>
+        <div style="display:flex;gap:8px">
+          <div style="flex:1;height:36px;border:2px solid #2c2c2c;border-radius:7px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px">Leaderboard</div>
+          <div style="flex:1;height:36px;border:2px solid #2c2c2c;border-radius:7px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px">Home</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SECTION: SECONDARY + EXPLORATIONS ============ -->
+<div style="position:absolute;left:80px;top:830px;font:400 17px 'Architects Daughter',cursive;color:#6b6b6b;letter-spacing:1px">— SECONDARY SCREEN & EXPLORATIONS —</div>
+
+<!-- FRAME 5: LEADERBOARD -->
+<div style="position:absolute;left:80px;top:884px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">05 · Leaderboard</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io/leaderboard</div>
+    </div>
+    <div style="padding:20px 22px 22px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="height:22px;width:140px;background:#2c2c2c;border-radius:5px"></div>
+        <div style="display:flex;gap:6px">
+          <span style="border:2px solid #2c2c2c;border-radius:20px;padding:3px 12px;font-size:12px;background:#4ca64c;color:#fff">All Time</span>
+          <span style="border:2px solid #b9b7af;border-radius:20px;padding:3px 12px;font-size:12px;color:#8a8880">Today</span>
+          <span style="border:2px solid #b9b7af;border-radius:20px;padding:3px 12px;font-size:12px;color:#8a8880">Week</span>
+        </div>
+      </div>
+      <div style="display:flex;font:9px 'Space Mono',monospace;color:#8a8880;padding:0 10px 8px;border-bottom:2px solid #2c2c2c">
+        <div style="width:36px">#</div><div style="flex:1">PLAYER</div><div style="width:64px;text-align:right">SCORE</div><div style="width:44px;text-align:right">LEN</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:9px 10px;background:#e3f0df;border-bottom:1px solid #ddd9cf"><div style="width:36px"><span style="display:inline-flex;width:20px;height:20px;background:#f2c14e;border:1.5px solid #2c2c2c;border-radius:4px;align-items:center;justify-content:center;font:9px 'Space Mono'">1</span></div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#fff;border:1.5px solid #2c2c2c;border-radius:50%"></span><div style="height:10px;width:90px;background:#cfcdc3;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px">9820</div><div style="width:44px;text-align:right;font:11px 'Space Mono'">88</div></div>
+      <div style="display:flex;align-items:center;padding:9px 10px;border-bottom:1px solid #ece9df"><div style="width:36px"><span style="display:inline-flex;width:20px;height:20px;background:#dcdcd6;border:1.5px solid #2c2c2c;border-radius:4px;align-items:center;justify-content:center;font:9px 'Space Mono'">2</span></div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#fff;border:1.5px solid #2c2c2c;border-radius:50%"></span><div style="height:10px;width:76px;background:#d6d4ca;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px">9140</div><div style="width:44px;text-align:right;font:11px 'Space Mono'">81</div></div>
+      <div style="display:flex;align-items:center;padding:9px 10px;border-bottom:1px solid #ece9df"><div style="width:36px"><span style="display:inline-flex;width:20px;height:20px;background:#e7c9a8;border:1.5px solid #2c2c2c;border-radius:4px;align-items:center;justify-content:center;font:9px 'Space Mono'">3</span></div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#fff;border:1.5px solid #2c2c2c;border-radius:50%"></span><div style="height:10px;width:84px;background:#d6d4ca;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px">8675</div><div style="width:44px;text-align:right;font:11px 'Space Mono'">79</div></div>
+      <div style="display:flex;align-items:center;padding:9px 10px;border-bottom:1px solid #ece9df"><div style="width:36px;font:11px 'Space Mono';color:#6b6b6b;padding-left:5px">4</div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#f4f2ea;border:1.5px solid #b9b7af;border-radius:50%"></span><div style="height:10px;width:70px;background:#e0ded4;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px;color:#6b6b6b">8120</div><div style="width:44px;text-align:right;font:11px 'Space Mono';color:#8a8880">74</div></div>
+      <div style="display:flex;align-items:center;padding:9px 10px;border-bottom:1px solid #ece9df"><div style="width:36px;font:11px 'Space Mono';color:#6b6b6b;padding-left:5px">5</div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#f4f2ea;border:1.5px solid #b9b7af;border-radius:50%"></span><div style="height:10px;width:88px;background:#e0ded4;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px;color:#6b6b6b">7990</div><div style="width:44px;text-align:right;font:11px 'Space Mono';color:#8a8880">72</div></div>
+      <div style="display:flex;align-items:center;padding:9px 10px;border-bottom:1px solid #ece9df"><div style="width:36px;font:11px 'Space Mono';color:#6b6b6b;padding-left:5px">6</div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#f4f2ea;border:1.5px solid #b9b7af;border-radius:50%"></span><div style="height:10px;width:64px;background:#e0ded4;border-radius:5px"></div></div><div style="width:64px;text-align:right;font-size:14px;color:#6b6b6b">7540</div><div style="width:44px;text-align:right;font:11px 'Space Mono';color:#8a8880">68</div></div>
+      <div style="margin-top:10px;display:flex;align-items:center;padding:10px;border:2px dashed #4ca64c;border-radius:7px;background:#eef6ea"><div style="width:36px;font:11px 'Space Mono';color:#3a8f3a;padding-left:5px">14</div><div style="flex:1;display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:50%"></span><div style="font-size:14px">YOU</div></div><div style="width:64px;text-align:right;font-size:14px">5310</div><div style="width:44px;text-align:right;font:11px 'Space Mono'">51</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VARIANT: HOME B (split) -->
+<div style="position:absolute;left:620px;top:884px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">A · Home variant — split layout</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1.5px dashed #cdcabf">
+      <div style="display:flex;align-items:center;gap:7px;font-size:15px"><span style="width:13px;height:13px;background:#4ca64c;border:2px solid #2c2c2c;border-radius:3px"></span>UNTITLED SNAKE</div>
+      <div style="font-size:12px;color:#6b6b6b">Leaderboard&nbsp;&nbsp;How to Play</div>
+    </div>
+    <div style="display:flex;min-height:300px">
+      <div style="flex:1;padding:26px 20px;border-right:2px solid #2c2c2c">
+        <div style="display:inline-block;font:10px 'Space Mono',monospace;color:#6b6b6b;border:1.5px solid #b9b7af;border-radius:20px;padding:2px 10px;margin-bottom:14px">MULTIPLAYER</div>
+        <div style="height:24px;width:80%;background:#dcdacf;border-radius:5px;margin-bottom:7px"></div>
+        <div style="height:24px;width:95%;background:#2c2c2c;border-radius:5px;margin-bottom:16px"></div>
+        <div style="font:10px 'Space Mono';color:#8a8880;margin-bottom:5px">YOUR NAME</div>
+        <div style="height:36px;border:2px solid #2c2c2c;border-radius:6px;background:#fff;margin-bottom:12px"></div>
+        <div style="height:44px;background:#4ca64c;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:3px 3px 0 #2c2c2c;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff">PLAY NOW ▶</div>
+      </div>
+      <div style="flex:1;position:relative;background:repeating-linear-gradient(0deg,#f2f1ea 0 19px,#ece9df 19px 20px),repeating-linear-gradient(90deg,#f2f1ea 0 19px,#ece9df 19px 20px)">
+        <div style="position:absolute;top:10px;left:10px;font:9px 'Space Mono';color:#a3a199;border:1.5px solid #b9b7af;border-radius:14px;padding:2px 8px;background:rgba(252,251,247,.8)">● LIVE arena</div>
+        <span style="position:absolute;top:120px;left:60px;width:14px;height:14px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+        <span style="position:absolute;top:120px;left:76px;width:14px;height:14px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+        <span style="position:absolute;top:120px;left:92px;width:14px;height:14px;background:#3a8f3a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+        <span style="position:absolute;top:180px;left:140px;width:14px;height:14px;background:#d96a8a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+        <span style="position:absolute;top:80px;left:150px;width:9px;height:9px;background:#f2c14e;border:1.5px solid #2c2c2c;border-radius:50%"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VARIANT: ARENA HUD B (minimal) -->
+<div style="position:absolute;left:1160px;top:884px;width:460px">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;left:2px;font:400 14px 'Architects Daughter',cursive;color:#2c2c2c">B · Arena HUD variant — minimal</div>
+  <div style="background:#fcfbf7;border:2.5px solid #2c2c2c;border-radius:8px;box-shadow:5px 5px 0 rgba(44,44,44,.1);overflow:hidden;font-family:'Architects Daughter',cursive;color:#2c2c2c">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:2px solid #2c2c2c;background:#efeee8">
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #2c2c2c"></span>
+      <div style="flex:1;height:18px;border:1.5px solid #b9b7af;border-radius:9px;background:#fcfbf7;display:flex;align-items:center;padding:0 8px;font:11px 'Space Mono',monospace;color:#9a988f">snakegame.io/play · LIVE</div>
+    </div>
+    <div style="position:relative;height:320px;background:repeating-linear-gradient(0deg,#f2f1ea 0 23px,#ece9df 23px 24px),repeating-linear-gradient(90deg,#f2f1ea 0 23px,#ece9df 23px 24px)">
+      <span style="position:absolute;top:160px;left:170px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:160px;left:188px;width:16px;height:16px;background:#4ca64c;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:160px;left:206px;width:16px;height:16px;background:#3a8f3a;border:1.5px solid #2c2c2c;border-radius:4px"></span>
+      <span style="position:absolute;top:110px;left:280px;width:10px;height:10px;background:#f2c14e;border:1.5px solid #2c2c2c;border-radius:50%"></span>
+      <!-- just a centered score, big -->
+      <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);text-align:center">
+        <div style="font:9px 'Space Mono';color:#8a8880;letter-spacing:1px">SCORE</div>
+        <div style="font-size:30px;line-height:1;color:#2c2c2c">0420</div>
+      </div>
+      <!-- tiny rank pill -->
+      <div style="position:absolute;top:14px;right:14px;border:2px solid #2c2c2c;border-radius:16px;padding:3px 11px;background:rgba(252,251,247,.9);font-size:13px">#3 / 18</div>
+      <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font:9px 'Space Mono';color:#a3a199">leaderboard hidden · press TAB to expand</div>
+    </div>
+  </div>
+</div>
+
+<!-- POST-ITS -->
+<div style="position:absolute;left:1130px;top:470px;width:0;font:18px 'Architects Daughter';color:#4ca64c">→</div>
+<div style="position:absolute;left:590px;top:470px;width:0;font:18px 'Architects Daughter';color:#4ca64c">→</div>
+<div style="position:absolute;left:1670px;top:470px;width:0;font:18px 'Architects Daughter';color:#4ca64c">→</div>
+
+<div style="position:absolute;left:80px;top:790px;background:#fef4a8;padding:11px 13px;width:230px;font:14px/1.45 'Architects Daughter',cursive;color:#3a3a2a;box-shadow:2px 3px 6px rgba(0,0,0,.12);transform:rotate(-1.2deg)">Name entry up front = zero signup friction. Player picks a name and is in the arena in 2 taps.</div>
+
+<div style="position:absolute;left:1700px;top:790px;background:#cdeccf;padding:11px 13px;width:230px;font:14px/1.45 'Architects Daughter',cursive;color:#26402a;box-shadow:2px 3px 6px rgba(0,0,0,.12);transform:rotate(1deg)">HUD must stay legible over a busy grid — use solid chips w/ high-contrast borders, never float text on the canvas.</div>
+
+<div style="position:absolute;left:1130px;top:1230px;background:#fef4a8;padding:11px 13px;width:220px;font:14px/1.45 'Architects Daughter',cursive;color:#3a3a2a;box-shadow:2px 3px 6px rgba(0,0,0,.12);transform:rotate(-1deg)">Open Q: full HUD (03) vs. minimal (B)? Minimal feels more arcade, but new players may want the live ranking visible.</div>
+
+<div style="position:absolute;left:2210px;top:150px;background:#fff;border:2px solid #2c2c2c;border-radius:8px;padding:16px 18px;width:240px;font:14px/1.5 'Architects Daughter',cursive;color:#2c2c2c;box-shadow:4px 4px 0 rgba(44,44,44,.1)">
+  <div style="font-size:17px;margin-bottom:8px;display:flex;align-items:center;gap:7px"><span style="width:13px;height:13px;background:#4ca64c;border:2px solid #2c2c2c;border-radius:3px"></span>Legend</div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:30px;height:18px;background:#4ca64c;border:2px solid #2c2c2c;border-radius:5px"></span><span style="font-size:13px">primary action</span></div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:30px;height:18px;background:#fff;border:2px solid #2c2c2c;border-radius:5px"></span><span style="font-size:13px">secondary</span></div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:30px;height:18px;background:#d6d4ca;border-radius:5px"></span><span style="font-size:13px">text / label</span></div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:30px;height:18px;background:repeating-linear-gradient(45deg,#eceae2 0 5px,#f6f5ef 5px 10px);border:1.5px solid #b9b7af;border-radius:5px"></span><span style="font-size:13px">image / render</span></div>
+  <div style="display:flex;align-items:center;gap:8px"><span style="width:30px;height:18px;border:2px dashed #4ca64c;border-radius:5px;background:#eef6ea"></span><span style="font-size:13px">your row / focus</span></div>
+</div>
+</x-dc>
+</body>
+</html>
