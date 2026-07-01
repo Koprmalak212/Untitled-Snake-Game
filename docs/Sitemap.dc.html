@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+</style>
+</helmet>
+
+<div style="width: 1372px; min-height: 1012px; padding: 56px; background-color: #070b07; background-image: linear-gradient(rgba(78,240,138,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(78,240,138,.045) 1px, transparent 1px); background-size: 34px 34px; font-family: 'Rajdhani', sans-serif; color: #d7e6d9; overflow: hidden;">
+
+  <!-- Header -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgba(78,240,138,.18); padding-bottom: 26px; margin-bottom: 34px;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .32em; color: #4ef08a; text-transform: uppercase; margin-bottom: 16px;">Repository Sitemap</div>
+      <div style="font-family: 'Press Start 2P', monospace; font-size: 26px; line-height: 1.35; color: #f2fff4; text-shadow: 0 0 22px rgba(78,240,138,.35);">UNTITLED<br><span style="color: #4ef08a;">SNAKE GAME</span></div>
+    </div>
+    <div style="text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #7d9483; line-height: 1.9;">
+      github.com/Koprmalak212/Untitled-Snake-Game<br>
+      3 pages · 1 live · CSS 71.6% / HTML 28.4%
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div style="display: flex; gap: 34px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9db3a2; margin-bottom: 30px;">
+    <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #4ef08a; box-shadow: 0 0 10px rgba(78,240,138,.8); animation: pulseDot 2.4s ease-in-out infinite;"></span>LIVE — committed in repo</div>
+    <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 11px; height: 11px; border-radius: 50%; background: #ffcf5c; box-shadow: 0 0 10px rgba(255,207,92,.7);"></span>LINKED — referenced, not yet committed</div>
+    <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 14px; height: 0; border-top: 2px dashed #ff5c9d;"></span>INFERRED — implied by game design</div>
+  </div>
+
+  <!-- Body -->
+  <div style="display: flex; gap: 44px; align-items: flex-start;">
+
+    <!-- Repo file tree -->
+    <div style="width: 340px; flex: none; background: rgba(14,20,14,.7); border: 1px solid rgba(78,240,138,.2); border-radius: 14px; padding: 24px 26px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .28em; color: #4ef08a; text-transform: uppercase; margin-bottom: 20px;">Repo Structure</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 2.15; color: #b7cabd; white-space: pre;"><span style="color:#f2fff4;">Untitled-Snake-Game/</span>
+├─ <span style="color:#6d8574;">.idea/</span>
+├─ css/
+│  └─ <span style="color:#4ef08a;">main.css</span>
+├─ favicon/
+│  ├─ favicon.svg / .ico
+│  ├─ favicon-96x96.png
+│  ├─ apple-touch-icon.png
+│  └─ site.webmanifest
+├─ <span style="color:#6d8574;">node_modules/</span>
+├─ <span style="color:#6d8574;">.gitignore</span>
+├─ README.md
+├─ <span style="color:#4ef08a;">index.html</span>  <span style="color:#ffcf5c;">← site</span>
+├─ package.json
+└─ package-lock.json</div>
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(78,240,138,.14); font-size: 15px; line-height: 1.6; color: #8ba393;">A single-page front-end. All screens beyond the landing page are <span style="color:#ffcf5c;">linked but not yet built</span> in the repository.</div>
+    </div>
+
+    <!-- Sitemap graph -->
+    <div style="position: relative; width: 860px; height: 700px; flex: none;">
+
+      <svg viewBox="0 0 860 700" width="860" height="700" style="position: absolute; inset: 0;" aria-hidden="true">
+        <!-- root to home -->
+        <path d="M430 100 L430 170" stroke="rgba(78,240,138,.55)" stroke-width="2" fill="none" />
+        <!-- home to bus -->
+        <path d="M430 310 L430 380" stroke="rgba(78,240,138,.55)" stroke-width="2" fill="none" />
+        <path d="M180 380 L680 380" stroke="rgba(78,240,138,.55)" stroke-width="2" fill="none" />
+        <path d="M180 380 L180 420" stroke="rgba(78,240,138,.55)" stroke-width="2" fill="none" />
+        <path d="M680 380 L680 420" stroke="rgba(78,240,138,.55)" stroke-width="2" fill="none" />
+        <!-- join to arena (inferred) -->
+        <path d="M680 530 L680 580" stroke="rgba(255,92,157,.7)" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+        <!-- junctions -->
+        <circle cx="430" cy="380" r="3.5" fill="#4ef08a" />
+        <circle cx="180" cy="380" r="3.5" fill="#4ef08a" />
+        <circle cx="680" cy="380" r="3.5" fill="#4ef08a" />
+        <!-- edge labels -->
+        <text x="150" y="404" text-anchor="end" fill="#7d9483" font-family="'JetBrains Mono', monospace" font-size="11">nav link</text>
+        <text x="700" y="404" fill="#ffcf5c" font-family="'JetBrains Mono', monospace" font-size="11">Play Now ▶</text>
+        <text x="700" y="558" fill="#ff5c9d" font-family="'JetBrains Mono', monospace" font-size="11">inferred</text>
+      </svg>
+
+      <!-- Root node -->
+      <div style="position: absolute; left: 320px; top: 30px; width: 220px; height: 70px; background: rgba(14,20,14,.85); border: 1px solid rgba(78,240,138,.4); border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 0 24px rgba(78,240,138,.12);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .24em; color: #7d9483; text-transform: uppercase;">Site Root</div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 20px; color: #f2fff4; margin-top: 4px;">Snake Game</div>
+      </div>
+
+      <!-- Home node -->
+      <div style="position: absolute; left: 280px; top: 170px; width: 300px; height: 140px; background: linear-gradient(180deg, rgba(20,32,22,.95), rgba(12,18,12,.95)); border: 1.5px solid #4ef08a; border-radius: 14px; padding: 16px 18px; box-shadow: 0 0 30px rgba(78,240,138,.22);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #4ef08a;">index.html</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: .12em; background: rgba(78,240,138,.15); color: #4ef08a; border: 1px solid rgba(78,240,138,.5); border-radius: 20px; padding: 3px 9px;">LIVE</span>
+        </div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 24px; color: #f2fff4; margin: 6px 0 10px;">Home / Landing</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #b7cabd; background: rgba(78,240,138,.08); border: 1px solid rgba(78,240,138,.2); border-radius: 6px; padding: 3px 8px;">Navbar</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #b7cabd; background: rgba(78,240,138,.08); border: 1px solid rgba(78,240,138,.2); border-radius: 6px; padding: 3px 8px;">Hero · Name + Play</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #b7cabd; background: rgba(78,240,138,.08); border: 1px solid rgba(78,240,138,.2); border-radius: 6px; padding: 3px 8px;">#how-to-play</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #b7cabd; background: rgba(78,240,138,.08); border: 1px solid rgba(78,240,138,.2); border-radius: 6px; padding: 3px 8px;">Features</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #b7cabd; background: rgba(78,240,138,.08); border: 1px solid rgba(78,240,138,.2); border-radius: 6px; padding: 3px 8px;">Footer</span>
+        </div>
+      </div>
+
+      <!-- Leaderboard node -->
+      <div style="position: absolute; left: 60px; top: 420px; width: 240px; height: 110px; background: rgba(14,20,14,.9); border: 1.5px solid rgba(255,207,92,.55); border-radius: 14px; padding: 16px 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ffcf5c;">leaderboard.html</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: .12em; background: rgba(255,207,92,.14); color: #ffcf5c; border: 1px solid rgba(255,207,92,.5); border-radius: 20px; padding: 3px 8px;">LINKED</span>
+        </div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 22px; color: #f2fff4; margin: 6px 0 4px;">Leaderboard</div>
+        <div style="font-size: 14px; line-height: 1.4; color: #8ba393;">Real-time top-10 scores.</div>
+      </div>
+
+      <!-- Join node -->
+      <div style="position: absolute; left: 560px; top: 420px; width: 240px; height: 110px; background: rgba(14,20,14,.9); border: 1.5px solid rgba(255,207,92,.55); border-radius: 14px; padding: 16px 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ffcf5c;">join.html</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: .12em; background: rgba(255,207,92,.14); color: #ffcf5c; border: 1px solid rgba(255,207,92,.5); border-radius: 20px; padding: 3px 8px;">LINKED</span>
+        </div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 22px; color: #f2fff4; margin: 6px 0 4px;">Join Arena</div>
+        <div style="font-size: 14px; line-height: 1.4; color: #8ba393;">Lobby — enter the match.</div>
+      </div>
+
+      <!-- Arena node (inferred) -->
+      <div style="position: absolute; left: 560px; top: 580px; width: 240px; height: 95px; background: rgba(20,10,16,.7); border: 1.5px dashed rgba(255,92,157,.6); border-radius: 14px; padding: 16px 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ff5c9d;">arena / gameplay</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: .12em; background: rgba(255,92,157,.12); color: #ff5c9d; border: 1px dashed rgba(255,92,157,.6); border-radius: 20px; padding: 3px 8px;">INFERRED</span>
+        </div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 22px; color: #f7d7e6; margin: 6px 0 4px;">Multiplayer Arena</div>
+        <div style="font-size: 14px; line-height: 1.4; color: #b58aa0;">Last snake standing.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1372, &quot;height&quot;: 1012}}"></script>
+</body>
+</html>
