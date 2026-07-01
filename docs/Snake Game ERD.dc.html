@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #090b09; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background-color: #090b09; background-image: linear-gradient(rgba(55,224,127,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(55,224,127,0.045) 1px, transparent 1px); background-size: 34px 34px; padding: 44px 40px 72px; font-family: 'Rajdhani', sans-serif;">
+
+  <div style="width: 1240px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 30px; gap: 24px;">
+    <div>
+      <div style="font-family: 'Press Start 2P', monospace; font-size: 19px; line-height: 1.5; color: #eafff2; letter-spacing: 0.01em;">UNTITLED <span style="color: #37e07f;">SNAKE GAME</span></div>
+      <div style="margin-top: 12px; font: 600 15px/1 'Rajdhani', sans-serif; letter-spacing: 0.32em; text-transform: uppercase; color: #6f7d78;">Entity Relationship Diagram</div>
+      <div style="margin-top: 9px; font: 500 13px/1.5 'JetBrains Mono', monospace; color: #4d5a55; max-width: 560px;">Proposed multiplayer backend model &mdash; inferred from repo (players, live leaderboard, match arena, eliminations, scoring).</div>
+    </div>
+    <div style="border: 1px solid #283230; border-radius: 10px; background: #10151400; padding: 14px 16px; display: grid; grid-template-columns: auto auto; gap: 9px 22px; font: 600 12px/1 'Rajdhani', sans-serif; letter-spacing: 0.04em; color: #9aa8a2;">
+      <div style="display: flex; align-items: center; gap: 8px;"><span style="font: 700 9px/1 'Rajdhani'; color: #08130b; background: #37e07f; padding: 3px 5px; border-radius: 3px;">PK</span> Primary key</div>
+      <div style="display: flex; align-items: center; gap: 8px;"><span style="font: 700 9px/1 'Rajdhani'; color: #1a0a12; background: #ff5db1; padding: 3px 5px; border-radius: 3px;">FK</span> Foreign key</div>
+      <div style="display: flex; align-items: center; gap: 8px;"><svg width="34" height="10"><line x1="0" y1="5" x2="34" y2="5" stroke="#3c4b46" stroke-width="1.6"/><line x1="7" y1="1" x2="7" y2="9" stroke="#37e07f" stroke-width="1.9"/><line x1="34" y1="5" x2="24" y2="1" stroke="#37e07f" stroke-width="1.7"/><line x1="34" y1="5" x2="24" y2="9" stroke="#37e07f" stroke-width="1.7"/></svg> one&nbsp;&rarr;&nbsp;many</div>
+      <div style="display: flex; align-items: center; gap: 8px;"><svg width="34" height="10"><line x1="0" y1="5" x2="34" y2="5" stroke="#ff5db1" stroke-width="1.6" stroke-dasharray="6 5"/></svg> optional&nbsp;/&nbsp;nullable</div>
+    </div>
+  </div>
+
+  <div style="width: 1240px; margin: 0 auto;">{{ diagram }}</div>
+
+  <div style="width: 1240px; margin: 22px auto 0; font: 500 12px/1.6 'JetBrains Mono', monospace; color: #3f4b47;">9 entities &middot; 12 relationships &middot; 1:1 marked with matching bars, 1:N with crow&rsquo;s foot</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#37e07f&quot;, &quot;options&quot;: [&quot;#37e07f&quot;, &quot;#57b6ff&quot;, &quot;#ffb454&quot;, &quot;#ff5db1&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Style&quot;}, &quot;showOptional&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Style&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const E = React.createElement;
+    const GREEN = this.props.accentColor || '#37e07f';
+    const PINK = '#ff5db1', LINE = '#3c4b46', TXT = '#e7f0ec', SUB = '#7a8983', TYPE = '#66756f', CARDBG = '#14191a', CARDBD = '#283230';
+    const showOpt = this.props.showOptional !== false;
+    const W = 232, HEAD = 44, ROW = 28;
+
+    const ent = {
+      player: { x: 180, y: 250, fields: [['id','uuid','PK'],['display_name','varchar(20)',''],['email','varchar','U'],['created_at','timestamptz',''],['total_wins','int','']] },
+      leaderboard_entry: { x: 180, y: 560, fields: [['id','uuid','PK'],['player_id','uuid','FK'],['best_score','int',''],['rank','int',''],['recorded_at','timestamptz','']] },
+      score: { x: 180, y: 830, fields: [['id','uuid','PK'],['participant_id','uuid','FK'],['points','int',''],['kills','int',''],['food_eaten','int',''],['survival_ms','int','']] },
+      match: { x: 560, y: 60, fields: [['id','uuid','PK'],['status','enum',''],['arena_width','int',''],['arena_height','int',''],['max_players','int',''],['winner_id','uuid','FK'],['started_at','timestamptz',''],['ended_at','timestamptz','']] },
+      participant: { x: 560, y: 470, fields: [['id','uuid','PK'],['match_id','uuid','FK'],['player_id','uuid','FK'],['join_order','int',''],['final_rank','int',''],['is_alive','bool','']] },
+      elimination: { x: 560, y: 830, fields: [['id','uuid','PK'],['match_id','uuid','FK'],['killer_id','uuid','FK'],['victim_id','uuid','FK'],['occurred_at','timestamptz','']] },
+      snake: { x: 920, y: 250, fields: [['id','uuid','PK'],['participant_id','uuid','FK'],['color','varchar',''],['length','int',''],['speed','float',''],['direction','enum',''],['head_x','int',''],['head_y','int','']] },
+      segment: { x: 920, y: 560, fields: [['id','uuid','PK'],['snake_id','uuid','FK'],['order_index','int',''],['x','int',''],['y','int','']] },
+      food_pellet: { x: 920, y: 830, fields: [['id','uuid','PK'],['match_id','uuid','FK'],['x','int',''],['y','int',''],['value','int',''],['consumed_by','uuid','FK']] },
+    };
+
+    const CONN = [
+      { pts: [[412,338],[486,338],[486,572],[560,572]], a: ['right','one'], b: ['left','many'], dash: 0 },
+      { pts: [[676,318],[676,470]], a: ['bottom','one'], b: ['top','many'], dash: 0 },
+      { pts: [[792,540],[856,540],[856,379],[920,379]], a: ['right','one'], b: ['left','one'], dash: 0 },
+      { pts: [[560,620],[486,620],[486,862],[412,862]], a: ['left','one'], b: ['right','one'], dash: 0 },
+      { pts: [[792,140],[1204,140],[1204,900],[1152,900]], a: ['right','one'], b: ['right','many'], dash: 0 },
+      { pts: [[560,180],[508,180],[508,895],[560,895]], a: ['left','one'], b: ['left','many'], dash: 0 },
+      { pts: [[652,674],[652,830]], a: ['bottom','one'], b: ['top','many'], dash: 0 },
+      { pts: [[706,674],[706,762],[726,762],[726,830]], a: ['bottom','one'], b: ['top','many'], dash: 1 },
+      { pts: [[1036,508],[1036,560]], a: ['bottom','one'], b: ['top','many'], dash: 0 },
+      { pts: [[920,430],[892,430],[892,900],[920,900]], a: ['left','one'], b: ['left','many'], dash: 1 },
+      { pts: [[296,427],[296,560]], a: ['bottom','one'], b: ['top','many'], dash: 0 },
+      { pts: [[412,300],[500,300],[500,150],[560,150]], a: ['right','one'], b: ['left','many'], dash: 1 },
+    ];
+
+    const line = (x1, y1, x2, y2, col, w, k) => E('line', { key: k, x1, y1, x2, y2, stroke: col, strokeWidth: w, strokeLinecap: 'round' });
+    const marker = (x, y, side, kind, col, key) => {
+      const m = 13, s = 7, o = 9, out = [];
+      if (kind === 'many') {
+        let d;
+        if (side === 'left') d = [[x-m,y,x,y-s],[x-m,y,x,y+s],[x-m,y,x,y]];
+        if (side === 'right') d = [[x+m,y,x,y-s],[x+m,y,x,y+s],[x+m,y,x,y]];
+        if (side === 'top') d = [[x,y-m,x-s,y],[x,y-m,x+s,y],[x,y-m,x,y]];
+        if (side === 'bottom') d = [[x,y+m,x-s,y],[x,y+m,x+s,y],[x,y+m,x,y]];
+        d.forEach((l, i) => out.push(line(l[0], l[1], l[2], l[3], col, 1.7, key+'m'+i)));
+      } else {
+        let a;
+        if (side === 'left') a = [x-o,y-s,x-o,y+s];
+        if (side === 'right') a = [x+o,y-s,x+o,y+s];
+        if (side === 'top') a = [x-s,y-o,x+s,y-o];
+        if (side === 'bottom') a = [x-s,y+o,x+s,y+o];
+        out.push(line(a[0], a[1], a[2], a[3], col, 1.9, key+'b'));
+      }
+      return out;
+    };
+
+    const svgKids = [];
+    CONN.forEach((c, ci) => {
+      if (c.dash && !showOpt) return;
+      const col = c.dash ? PINK : LINE;
+      const mcol = c.dash ? PINK : GREEN;
+      svgKids.push(E('polyline', { key: 'p'+ci, points: c.pts.map(p => p.join(',')).join(' '), fill: 'none', stroke: col, strokeWidth: 1.6, strokeDasharray: c.dash ? '6 5' : undefined, strokeLinejoin: 'round', opacity: c.dash ? 0.85 : 1 }));
+      const A = c.pts[0], B = c.pts[c.pts.length - 1];
+      marker(A[0], A[1], c.a[0], c.a[1], mcol, 'a'+ci).forEach(el => svgKids.push(el));
+      marker(B[0], B[1], c.b[0], c.b[1], mcol, 'b'+ci).forEach(el => svgKids.push(el));
+    });
+    const svg = E('svg', { width: 1240, height: 1120, viewBox: '0 0 1240 1120', style: { position: 'absolute', top: 0, left: 0, overflow: 'visible' } }, svgKids);
+
+    const badge = (k) => {
+      if (k === 'PK') return E('span', { style: { font: "700 9px/1 'Rajdhani',sans-serif", letterSpacing: '.06em', color: '#08120c', background: GREEN, padding: '2px 5px', borderRadius: 3 } }, 'PK');
+      if (k === 'FK') return E('span', { style: { font: "700 9px/1 'Rajdhani',sans-serif", letterSpacing: '.06em', color: '#1a0a12', background: PINK, padding: '2px 5px', borderRadius: 3 } }, 'FK');
+      if (k === 'U') return E('span', { style: { font: "700 9px/1 'Rajdhani',sans-serif", letterSpacing: '.06em', color: SUB, border: '1px solid '+CARDBD, padding: '2px 5px', borderRadius: 3 } }, 'UQ');
+      return null;
+    };
+
+    const cards = Object.keys(ent).map((k) => {
+      const e = ent[k];
+      const rows = e.fields.map((f, i) => {
+        const isKey = f[2] === 'PK';
+        return E('div', { key: i, style: { display: 'flex', alignItems: 'center', gap: 8, height: ROW, padding: '0 12px', borderTop: '1px solid '+CARDBD } },
+          E('span', { style: { width: 20, flex: 'none', display: 'flex' } }, badge(f[2])),
+          E('span', { style: { flex: 1, font: (isKey ? 600 : 500) + " 13px/1 'Rajdhani',sans-serif", color: f[2] === 'FK' ? PINK : (isKey ? GREEN : TXT), letterSpacing: '.01em' } }, f[0]),
+          E('span', { style: { font: "500 10px/1 'JetBrains Mono',monospace", color: TYPE, letterSpacing: '.02em' } }, f[1])
+        );
+      });
+      return E('div', { key: k, style: { position: 'absolute', left: e.x, top: e.y, width: W, background: CARDBG, border: '1px solid '+CARDBD, borderRadius: 9, boxShadow: '0 12px 34px -14px rgba(0,0,0,.75)', zIndex: 2, overflow: 'hidden' } },
+        E('div', { style: { height: HEAD, display: 'flex', alignItems: 'center', padding: '0 13px', background: GREEN, boxShadow: 'inset 0 1px 0 rgba(255,255,255,.25)' } },
+          E('span', { style: { font: "700 14px/1 'Rajdhani',sans-serif", letterSpacing: '.11em', textTransform: 'uppercase', color: '#08130b' } }, k)),
+        rows
+      );
+    });
+
+    const diagram = E('div', { style: { position: 'relative', width: 1240, height: 1120 } }, svg, cards);
+    return { diagram };
+  }
+}
+</script>
+</body>
+</html>

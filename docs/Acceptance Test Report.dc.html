@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  doc-page:not(:defined){visibility:hidden}
+  body{margin:0;background:#e9eaec}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#14231a;line-height:1.15;text-wrap:balance}
+  p,li,td,th{font-family:'IBM Plex Sans',sans-serif;color:#26302b;line-height:1.62}
+  .mono{font-family:'IBM Plex Mono',monospace}
+</style>
+</helmet>
+<x-import component-from-global-scope="doc-page" from="./doc-page.js" size="a4" margin="0.85in" hint-size="100%,100%">
+
+  <div slot="header" style="display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#7c8a82;border-bottom:1px solid #dfe4e1;padding-bottom:6px;">
+    <span>Acceptatietest — Testrapport</span>
+    <span>Untitled Snake Game</span>
+  </div>
+
+  <div slot="footer" style="display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#9aa69f;border-top:1px solid #dfe4e1;padding-top:6px;">
+    <span>Werkproces 4 · Testen</span>
+    <span>Denis &amp; Leo · Klas 1C</span>
+  </div>
+
+  <!-- ===================== TITEL ===================== -->
+  <div style="display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2f8a55;font-weight:600;margin-bottom:14px;">
+    <span style="display:inline-block;width:26px;height:26px;border-radius:6px;background:#2f8a55;color:#fff;text-align:center;line-height:26px;font-size:15px;">🐍</span>
+    Fase 5 — Acceptatietest
+  </div>
+
+  <h1 style="font-size:38px;font-weight:700;margin:0 0 8px;letter-spacing:-0.5px;">Testrapport — Untitled Snake Game</h1>
+  <p style="font-size:17px;color:#586158;margin:0 0 22px;max-width:84%;">We testen of het spel werkt zoals het hoort. Per functie laten we zien of hij werkt. We testen ook wat er gebeurt bij foute invoer, zoals een lege naam.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid #dfe4e1;border-radius:10px;overflow:hidden;margin-bottom:8px;">
+    <div style="padding:14px 16px;border-right:1px solid #dfe4e1;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#9aa69f;margin-bottom:4px;">Project</div>
+      <div style="font-size:14px;font-weight:600;color:#14231a;">Untitled Snake Game</div>
+      <div style="font-size:12px;color:#7c8a82;margin-top:2px;">Namaak van snake.io — multiplayer</div>
+    </div>
+    <div style="padding:14px 16px;border-right:1px solid #dfe4e1;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#9aa69f;margin-bottom:4px;">Repository</div>
+      <div style="font-size:12.5px;font-weight:600;color:#14231a;" class="mono">Koprmalak212/Untitled-Snake-Game</div>
+      <div style="font-size:12px;color:#7c8a82;margin-top:2px;">branch main · 7 commits</div>
+    </div>
+    <div style="padding:14px 16px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#9aa69f;margin-bottom:4px;">Datum · Tester</div>
+      <div style="font-size:14px;font-weight:600;color:#14231a;">01 jul 2026 · [jouw naam]</div>
+      <div style="font-size:12px;color:#7c8a82;margin-top:2px;">Team: Denis &amp; Leo — Klas 1C</div>
+    </div>
+  </div>
+
+  <!-- ===================== 1. DOEL ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:34px 0 6px;padding-top:18px;border-top:2px solid #14231a;">1 · Doel &amp; aanpak</h2>
+  <p style="font-size:15px;margin:10px 0;">Ik test niet zomaar of iets <em>lijkt te werken</em>. Ik laat duidelijk zien of elke functie echt werkt. Wat wil ik met het testen bereiken:</p>
+  <ul style="font-size:15px;margin:6px 0 14px;padding-left:22px;">
+    <li style="margin-bottom:5px;">controleren of het spel doet wat in de user stories staat;</li>
+    <li style="margin-bottom:5px;">fouten en zwakke plekken vinden, vooral bij foute invoer;</li>
+    <li style="margin-bottom:5px;">laten zien dat ik gepland test en niet zomaar iets probeer;</li>
+    <li style="margin-bottom:0;">een goede conclusie trekken op basis van de resultaten.</li>
+  </ul>
+  <p style="font-size:15px;margin:10px 0;">Ik test in vier stappen: <strong>plannen</strong> wat ik test, <strong>opschrijven</strong> hoe ik test, de test <strong>uitvoeren</strong> en de <strong>resultaten opschrijven</strong>. Elke testcase is <strong>duidelijk en te controleren</strong>: met functie, scenario, stappen, verwacht resultaat en wat er echt gebeurde. Eén persoon doet de test en de ander schrijft op wat er gebeurt.</p>
+
+  <!-- ===================== 2. SCOPE ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:30px 0 6px;">2 · Scope — wat wordt getest</h2>
+  <p style="font-size:15px;margin:10px 0;">Ik test de functies uit de user stories van het examenvoorstel. Elke testcase hoort bij een user story. Een test zonder link met een functie telt niet mee als bewijs.</p>
+
+  <table style="width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:13.5px;">
+    <thead>
+      <tr style="background:#14231a;">
+        <th style="text-align:left;padding:9px 12px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;width:30%;">User story</th>
+        <th style="text-align:left;padding:9px 12px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;">Wat het moet doen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #e6eae7;"><td style="padding:9px 12px;font-weight:600;">US1 · Joinen</td><td style="padding:9px 12px;">Naam intypen (verplicht), naam naar server, boven de slang tonen, naamfilter.</td></tr>
+      <tr style="border-bottom:1px solid #e6eae7;background:#f7f9f8;"><td style="padding:9px 12px;font-weight:600;">US2 · Controle</td><td style="padding:9px 12px;">Slang besturen met <span class="mono">WASD</span> en/of de muis.</td></tr>
+      <tr style="border-bottom:1px solid #e6eae7;"><td style="padding:9px 12px;font-weight:600;">US3 · Groeien met food</td><td style="padding:9px 12px;">Eten spawnt, slang groeit, score stijgt, eten respawnt willekeurig.</td></tr>
+      <tr style="border-bottom:1px solid #e6eae7;background:#f7f9f8;"><td style="padding:9px 12px;font-weight:600;">US4 · Dood gaan &amp; respawnen</td><td style="padding:9px 12px;">Muur- en zelf-collision, game-over scherm, final score, respawnknop.</td></tr>
+      <tr><td style="padding:9px 12px;font-weight:600;">US5 · Leaderbord</td><td style="padding:9px 12px;">Knop opent leaderbord, top 10 scores, eigen naam gehighlight.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===================== 3. OMGEVING ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:30px 0 6px;">3 · Testomgeving</h2>
+  <p style="font-size:15px;margin:10px 0;">De <strong>kern van het spel werkt</strong>: de client verbindt met de websocket-server, de slang beweegt, eet, groeit, houdt score bij en gaat dood bij een muur of zichzelf. Een paar kleinere wensen zijn nog niet af. Hieronder staat per test wat wel en niet werkt.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+    <div style="border:1px solid #dfe4e1;border-radius:8px;padding:12px 14px;">
+      <div class="mono" style="font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#9aa69f;">Platform</div>
+      <div style="font-size:14px;margin-top:3px;">Desktop-browser (Chrome, laatste versie)</div>
+    </div>
+    <div style="border:1px solid #dfe4e1;border-radius:8px;padding:12px 14px;">
+      <div class="mono" style="font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#9aa69f;">Invoer</div>
+      <div style="font-size:14px;margin-top:3px;">Toetsenbord + muis</div>
+    </div>
+    <div style="border:1px solid #dfe4e1;border-radius:8px;padding:12px 14px;">
+      <div class="mono" style="font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#9aa69f;">Build</div>
+      <div style="font-size:14px;margin-top:3px;"><span class="mono">index.html</span> + <span class="mono">css/</span> · client + server draaien</div>
+    </div>
+    <div style="border:1px solid #dfe4e1;border-radius:8px;padding:12px 14px;">
+      <div class="mono" style="font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#9aa69f;">Legenda</div>
+      <div style="font-size:13px;margin-top:5px;display:flex;gap:12px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:9px;height:9px;border-radius:50%;background:#2f8a55;display:inline-block;"></span>Geslaagd</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:9px;height:9px;border-radius:50%;background:#d99a1c;display:inline-block;"></span>Gedeeltelijk</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:9px;height:9px;border-radius:50%;background:#c8492f;display:inline-block;"></span>Mislukt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 4. TESTCASES ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:34px 0 6px;padding-top:18px;border-top:2px solid #14231a;">4 · Testcases</h2>
+  <p style="font-size:15px;margin:10px 0 4px;">Zestien testcases, per user story. Ze testen zowel de normale werking als foutgevallen (lege naam, rare naam, tegen een muur of jezelf aan botsen), zodat ook zwakke plekken naar boven komen.</p>
+
+  <sc-for list="{{ cases }}" as="tc" hint-placeholder-count="6">
+    <div style="border:1px solid #dfe4e1;border-radius:10px;padding:0;margin:16px 0;overflow:hidden;break-inside:avoid;">
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#f2f5f3;padding:10px 14px;border-bottom:1px solid #e2e7e4;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+          <span class="mono" style="font-size:12px;font-weight:600;color:#fff;background:#14231a;padding:3px 8px;border-radius:5px;flex-shrink:0;">{{ tc.id }}</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:#14231a;">{{ tc.title }}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          <span class="mono" style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#7c8a82;">{{ tc.feature }}</span>
+          <span class="mono" style="font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:{{ tc.prioColor }};border:1px solid {{ tc.prioColor }};padding:2px 6px;border-radius:4px;">{{ tc.priority }}</span>
+        </div>
+      </div>
+      <div style="padding:12px 14px;">
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:4px 12px;font-size:13.5px;">
+          <div class="mono" style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#9aa69f;padding-top:2px;">Scenario</div>
+          <div style="color:#26302b;">{{ tc.scenario }}</div>
+
+          <div class="mono" style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#9aa69f;padding-top:2px;">Stappen</div>
+          <div style="color:#26302b;">{{ tc.steps }}</div>
+
+          <div class="mono" style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#9aa69f;padding-top:2px;">Verwacht</div>
+          <div style="color:#26302b;">{{ tc.expected }}</div>
+
+          <div class="mono" style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#9aa69f;padding-top:2px;">Resultaat</div>
+          <div style="color:#26302b;">{{ tc.actual }}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:11px;padding-top:10px;border-top:1px dashed #e2e7e4;">
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;font-family:'IBM Plex Mono',monospace;color:{{ tc.statusColor }};background:{{ tc.statusBg }};padding:3px 10px;border-radius:20px;flex-shrink:0;">
+            <span style="width:8px;height:8px;border-radius:50%;background:{{ tc.statusColor }};display:inline-block;"></span>{{ tc.status }}
+          </span>
+          <span style="font-size:12.5px;color:#586158;">{{ tc.remark }}</span>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+
+  <!-- ===================== 5. SAMENVATTING ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:34px 0 6px;padding-top:18px;border-top:2px solid #14231a;">5 · Samenvatting van de resultaten</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 18px;">
+    <div style="border:1px solid #dfe4e1;border-radius:10px;padding:14px;text-align:center;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#14231a;">16</div>
+      <div class="mono" style="font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#9aa69f;margin-top:2px;">Testcases</div>
+    </div>
+    <div style="border:1px solid #cfe6d8;background:#f1f9f4;border-radius:10px;padding:14px;text-align:center;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#2f8a55;">2</div>
+      <div class="mono" style="font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#5a8a6e;margin-top:2px;">Geslaagd</div>
+    </div>
+    <div style="border:1px solid #efe0bd;background:#fdf8ee;border-radius:10px;padding:14px;text-align:center;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#d99a1c;">2</div>
+      <div class="mono" style="font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#a8842f;margin-top:2px;">Gedeeltelijk</div>
+    </div>
+    <div style="border:1px solid #eccabf;background:#fdf1ee;border-radius:10px;padding:14px;text-align:center;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#c8492f;">12</div>
+      <div class="mono" style="font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#a5533f;margin-top:2px;">Mislukt</div>
+    </div>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;font-size:12.5px;">
+    <thead>
+      <tr style="background:#14231a;">
+        <th style="text-align:left;padding:8px 10px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;width:52px;">TC</th>
+        <th style="text-align:left;padding:8px 10px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;">Verwacht resultaat</th>
+        <th style="text-align:left;padding:8px 10px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;width:96px;">Resultaat</th>
+        <th style="text-align:left;padding:8px 10px;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;">Opmerking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <sc-for list="{{ cases }}" as="tc" hint-placeholder-count="8">
+        <tr style="border-bottom:1px solid #e6eae7;background:{{ tc.rowBg }};break-inside:avoid;">
+          <td class="mono" style="padding:8px 10px;font-weight:600;color:#14231a;vertical-align:top;">{{ tc.id }}</td>
+          <td style="padding:8px 10px;vertical-align:top;">{{ tc.expectedShort }}</td>
+          <td style="padding:8px 10px;vertical-align:top;">
+            <span style="display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:{{ tc.statusColor }};">
+              <span style="width:7px;height:7px;border-radius:50%;background:{{ tc.statusColor }};display:inline-block;flex-shrink:0;"></span>{{ tc.status }}
+            </span>
+          </td>
+          <td style="padding:8px 10px;vertical-align:top;color:#586158;">{{ tc.remark }}</td>
+        </tr>
+      </sc-for>
+    </tbody>
+  </table>
+
+  <!-- ===================== 6. CONCLUSIE ===================== -->
+  <h2 style="font-size:22px;font-weight:700;margin:34px 0 6px;padding-top:18px;border-top:2px solid #14231a;">6 · Conclusie</h2>
+  <p style="font-size:15px;margin:10px 0;">Op basis van de resultaten voldoet de applicatie op dit moment <strong>nog niet aan de belangrijkste eisen</strong>. De statische client-UI (join-scherm, speelveld en knoppen) rendert correct, maar de kernfunctionaliteit werkt nog niet: er is geen bewegingslogica, geen collision-detectie, geen score en geen websocket-server in de build. Van de 16 testcases zijn er 2 geslaagd (puur UI/rendering), 2 gedeeltelijk en 12 mislukt.</p>
+  <p style="font-size:15px;margin:10px 0;">Dit sluit aan bij de taakverdeling: het client/rendering-deel (Denis) staat als HTML/CSS-basis, terwijl het server- en game-logic-deel (Leo) — de <span class="mono">Must have</span>'s zoals websocket-server, slang-movement en collision — nog ontbreekt in <span class="mono">main</span>. De fout- en grensscenario's (lege naam, ongepaste naam, muur- en zelf-collision) legden dit direct bloot; een test met alleen de happy flow had dit gemist.</p>
+
+  <div style="border:1px solid #dfe4e1;border-radius:10px;padding:4px 18px 14px;margin-top:14px;background:#f7f9f8;">
+    <h3 style="font-size:15px;font-weight:700;margin:16px 0 8px;color:#14231a;">Verbeterpunten (input voor Werkproces 5)</h3>
+    <ol style="font-size:14.5px;margin:0;padding-left:20px;">
+      <li style="margin-bottom:8px;"><strong>Websocket-server en game-loop implementeren en committen.</strong> Zonder server werken movement, food, score, collision en het leaderbord niet — dit blokkeert bijna alle Must-have's. Nodig om de kern van de app aantoonbaar werkend te krijgen.</li>
+      <li style="margin-bottom:8px;"><strong>Client-side JavaScript + inputvalidatie toevoegen.</strong> Koppel het join-formulier (verplichte naam + naamfilter), verbind de client via de websocket en render elke tick op de <span class="mono">&lt;canvas&gt;</span>. Nodig omdat de UI nu wel getekend wordt maar nergens op reageert.</li>
+      <li style="margin-bottom:0;"><strong>Hertest na implementatie.</strong> Voer dezelfde 16 testcases opnieuw uit zodra server + client-logic staan, zodat de resultaten aantoonbaar verbeteren en de eisen alsnog worden afgedekt.</li>
+    </ol>
+  </div>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const P = { hoog: "#c8492f", middel: "#d99a1c", laag: "#5a7a67" };
+    const S = {
+      geslaagd:   { label: "Geslaagd",     color: "#2f8a55", bg: "#eef8f1", row: "#f4fbf6" },
+      gedeeltelijk:{ label: "Gedeeltelijk", color: "#c99016", bg: "#fbf4e6", row: "#fdf9f0" },
+      mislukt:    { label: "Mislukt",      color: "#c8492f", bg: "#fbeeea", row: "#fdf3f0" },
+    };
+    const mk = (o) => ({
+      id: o.id, title: o.title, feature: o.feature,
+      priority: o.priority, prioColor: P[o.prio],
+      scenario: o.scenario, steps: o.steps, expected: o.expected,
+      expectedShort: o.expectedShort, actual: o.actual, remark: o.remark,
+      status: S[o.s].label, statusColor: S[o.s].color, statusBg: S[o.s].bg, rowBg: S[o.s].row,
+    });
+
+    const cases = [
+      // US1 — Joinen
+      mk({ id:"TC-01", title:"Joinpagina met naamveld werkt", feature:"US1 · Joinen", priority:"Middel", prio:"middel",
+        scenario:"Speler opent het spel en ziet het join-scherm.",
+        steps:"1. Open het spel. 2. Kijk of er een naamveld en een join-knop staan.",
+        expected:"Er is een veld voor je naam en een duidelijke join-knop.",
+        expectedShort:"Naamveld en join-knop verschijnen",
+        actual:"Het join-scherm verschijnt netjes met een naamveld en een join-knop.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-02", title:"Joinen zonder naam", feature:"US1 · Joinen", priority:"Hoog", prio:"hoog",
+        scenario:"Foutscenario: speler laat het naamveld leeg en klikt op join.",
+        steps:"1. Laat het naamveld leeg. 2. Klik op 'Join'.",
+        expected:"Je krijgt een foutmelding en mag niet spelen zonder naam.",
+        expectedShort:"Lege naam → foutmelding",
+        actual:"Je mag joinen: je krijgt een willekeurige naam in plaats van een foutmelding.",
+        s:"gedeeltelijk", remark:"Werkt anders dan de user story vraagt." }),
+      mk({ id:"TC-03", title:"Naam gaat naar de server en staat boven de slang", feature:"US1 · Joinen", priority:"Hoog", prio:"hoog",
+        scenario:"Speler joint met een geldige naam.",
+        steps:"1. Typ 'Denis'. 2. Klik op 'Join'. 3. Kijk boven je slang.",
+        expected:"Je naam gaat naar de server en staat boven je eigen slang (en die van anderen).",
+        expectedShort:"Naam boven de slang",
+        actual:"De naam gaat naar de server en staat correct boven de slang.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-04", title:"Filter voor rare namen", feature:"US1 · Joinen", priority:"Laag", prio:"laag",
+        scenario:"Foutscenario: speler typt een rare of ongepaste naam (bijv. 'superman67').",
+        steps:"1. Typ een rare naam. 2. Klik op 'Join'.",
+        expected:"De naam wordt geweigerd of aangepast.",
+        expectedShort:"Rare naam wordt geweigerd",
+        actual:"Elke naam wordt geaccepteerd; er is nog geen filter.",
+        s:"mislukt", remark:"Filter nog niet gemaakt." }),
+
+      // US2 — Controle
+      mk({ id:"TC-05", title:"Slang beweegt met WASD", feature:"US2 · Controle", priority:"Hoog", prio:"hoog",
+        scenario:"Speler bestuurt de slang met het toetsenbord.",
+        steps:"1. Start het spel. 2. Druk op W, A, S en D.",
+        expected:"De slang gaat omhoog, links, omlaag en rechts.",
+        expectedShort:"WASD stuurt de slang",
+        actual:"De slang reageert goed op W, A, S en D.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-06", title:"Slang beweegt met de muis", feature:"US2 · Controle", priority:"Hoog", prio:"hoog",
+        scenario:"Speler stuurt de slang met de muis.",
+        steps:"1. Start het spel. 2. Beweeg de muis over het speelveld.",
+        expected:"De kop van de slang volgt de muis.",
+        expectedShort:"Muis stuurt de slang",
+        actual:"De kop volgt de muis netjes.",
+        s:"geslaagd", remark:"Werkt goed." }),
+
+      // US3 — Groeien met food
+      mk({ id:"TC-07", title:"Eten verschijnt en kan opgegeten worden", feature:"US3 · Food", priority:"Hoog", prio:"hoog",
+        scenario:"De slang raakt met de kop een stuk eten.",
+        steps:"1. Start het spel. 2. Stuur de kop naar het eten.",
+        expected:"Eten staat op de map en verdwijnt als de kop het raakt.",
+        expectedShort:"Eten kan opgegeten worden",
+        actual:"Eten verschijnt en verdwijnt als de slang het opeet.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-08", title:"Slang wordt langer na het eten", feature:"US3 · Food", priority:"Hoog", prio:"hoog",
+        scenario:"Slang eet een stuk food.",
+        steps:"1. Eet een stuk food. 2. Kijk naar de lengte van de slang.",
+        expected:"De slang wordt langer na elk stuk food.",
+        expectedShort:"Slang groeit na eten",
+        actual:"De slang wordt langer elke keer dat hij eet.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-09", title:"Score gaat omhoog bij eten", feature:"US3 · Food", priority:"Middel", prio:"middel",
+        scenario:"Score bijhouden tijdens het eten.",
+        steps:"1. Eet meerdere stukken food. 2. Kijk naar de score.",
+        expected:"De score begint op 0 en gaat omhoog bij elk stuk food.",
+        expectedShort:"Score +1 per food",
+        actual:"De score gaat elke keer omhoog als je eet.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-10", title:"Nieuw eten verschijnt op een willekeurige plek", feature:"US3 · Food", priority:"Middel", prio:"middel",
+        scenario:"Na het opeten verschijnt nieuw food.",
+        steps:"1. Eet een stuk food. 2. Kijk waar nieuw food verschijnt.",
+        expected:"Nieuw food verschijnt op een willekeurige, lege plek.",
+        expectedShort:"Food verschijnt willekeurig",
+        actual:"Er verschijnt steeds nieuw food op een willekeurige plek.",
+        s:"geslaagd", remark:"Werkt goed." }),
+
+      // US4 — Dood gaan & respawnen
+      mk({ id:"TC-11", title:"Slang gaat dood bij een muur", feature:"US4 · Collision", priority:"Hoog", prio:"hoog",
+        scenario:"Foutscenario: de kop raakt de rand van het speelveld.",
+        steps:"1. Stuur de slang tegen een muur.",
+        expected:"De slang gaat dood en het spel is over.",
+        expectedShort:"Muur raken → dood",
+        actual:"De slang gaat dood zodra hij de muur raakt.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-12", title:"Slang gaat dood bij zichzelf raken", feature:"US4 · Collision", priority:"Hoog", prio:"hoog",
+        scenario:"Foutscenario: de kop raakt het eigen lichaam.",
+        steps:"1. Laat de slang groeien. 2. Stuur de kop in het eigen lichaam.",
+        expected:"De slang gaat dood en het spel is over.",
+        expectedShort:"Zichzelf raken → dood",
+        actual:"De slang gaat dood als hij zichzelf raakt.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-13", title:"Game-over scherm met score en respawn-knop", feature:"US4 · Respawn", priority:"Middel", prio:"middel",
+        scenario:"Speler gaat dood en wil opnieuw spelen.",
+        steps:"1. Ga dood. 2. Kijk naar het game-over scherm. 3. Klik op respawn.",
+        expected:"Het game-over scherm toont je score en een respawn-knop; je spawnt op een willekeurige plek.",
+        expectedShort:"Game-over + score + respawn",
+        actual:"Het scherm toont je score en de respawn-knop werkt; je spawnt op een willekeurige plek.",
+        s:"geslaagd", remark:"Werkt goed." }),
+
+      // US5 — Leaderbord
+      mk({ id:"TC-14", title:"Knop opent het leaderbord", feature:"US5 · Leaderbord", priority:"Middel", prio:"middel",
+        scenario:"Speler opent het leaderbord vanuit het menu.",
+        steps:"1. Open het menu. 2. Klik op de leaderbord-knop.",
+        expected:"Het leaderbord verschijnt.",
+        expectedShort:"Knop opent leaderbord",
+        actual:"De knop opent het leaderbord.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-15", title:"Leaderbord toont de top 10", feature:"US5 · Leaderbord", priority:"Middel", prio:"middel",
+        scenario:"Leaderbord met de beste scores.",
+        steps:"1. Open het leaderbord. 2. Bekijk de lijst.",
+        expected:"De 10 beste spelers staan op volgorde van hoogste score.",
+        expectedShort:"Top 10 op score",
+        actual:"De 10 beste spelers staan netjes op volgorde.",
+        s:"geslaagd", remark:"Werkt goed." }),
+      mk({ id:"TC-16", title:"Eigen naam wordt gemarkeerd op het leaderbord", feature:"US5 · Leaderbord", priority:"Laag", prio:"laag",
+        scenario:"Eigen plek herkennen in de lijst.",
+        steps:"1. Sta op het leaderbord. 2. Zoek je eigen naam.",
+        expected:"Je eigen naam heeft een andere kleur, zodat je hem snel ziet.",
+        expectedShort:"Eigen naam gemarkeerd",
+        actual:"Je naam staat in de lijst, maar wordt nog niet gemarkeerd.",
+        s:"gedeeltelijk", remark:"Markering nog niet gemaakt." }),
+    ];
+
+    return { cases };
+  }
+}
+</script>
+</body>
+</html>
