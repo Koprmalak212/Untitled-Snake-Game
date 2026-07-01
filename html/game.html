@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Snake Game — Arena</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="game-page">
+
+<!-- ============ GAME CANVAS ============ -->
+<canvas id="gameCanvas"></canvas>
+
+<!-- ============ HUD OVERLAY ============ -->
+<div class="hud">
+
+    <!-- Score / stats, top-left -->
+    <div class="hud-panel hud-stats">
+        <div class="hud-label">Score</div>
+        <div class="hud-value" id="hudScore">0</div>
+        <div class="hud-sub" id="hudLength">Length: 0</div>
+    </div>
+
+    <!-- Live mini leaderboard, top-right -->
+    <div class="hud-panel hud-leaderboard">
+        <div class="hud-label">Top Snakes</div>
+        <ol id="hudLeaderboardList" class="hud-leaderboard-list">
+            <!-- server-injected <li> rows go here, e.g.:
+            <li class="is-you"><span class="rank">1</span><span class="name">Denis</span><span class="score">0</span></li>
+            -->
+        </ol>
+    </div>
+
+    <!-- Player name tag, bottom-left -->
+    <div class="hud-panel hud-player">
+        <span id="hudPlayerName">PlayerName</span>
+    </div>
+
+    <!-- Controls hint, bottom-right -->
+    <div class="hud-panel hud-controls">
+        <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span>
+        <span class="hud-controls-divider">or</span>
+        <span class="hud-controls-mouse">mouse</span>
+    </div>
+
+</div>
+
+<!-- ============ PAUSE OVERLAY (hidden by default) ============ -->
+<div class="overlay" id="pauseOverlay" hidden>
+    <div class="overlay-panel">
+        <h2>Paused</h2>
+        <button class="btn btn-primary" id="resumeBtn">Resume</button>
+        <button class="btn btn-secondary" id="quitBtn">Quit to Home</button>
+    </div>
+</div>
+
+<!-- ============ CONNECTION STATUS (hidden by default) ============ -->
+<div class="overlay" id="connectionOverlay" hidden>
+    <div class="overlay-panel">
+        <h2 id="connectionMessage">Connecting…</h2>
+    </div>
+</div>
+
+<!-- game logic / websocket connection: Leo's territory -->
+<script src="../js/game.js"></script>
+</body>
+</html>

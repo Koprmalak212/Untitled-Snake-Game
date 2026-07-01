@@ -103,6 +103,7 @@ body {
             linear-gradient(90deg, rgba(0, 255, 136, 0.07) 1px, transparent 1px);
     background-size: 44px 44px;
     animation: gridPulse 4s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes gridPulse {
@@ -893,4 +894,218 @@ body {
 .htp-cta {
     text-align: center;
     padding: 16px 0 0;
+}
+
+/* ─── Game page (Arena / in-game HUD) ─────────────────── */
+/* pages/game.html — canvas + HUD shell only, no game logic here */
+
+body.game-page {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: var(--bg);
+}
+
+.game-canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+}
+
+/* HUD layer sits above the canvas; the wrapper itself must never
+   swallow mouse input used for steering, only its individual panels do. */
+.game-hud {
+    position: fixed;
+    inset: 0;
+    padding: 20px;
+    font-family: var(--font-body);
+    color: var(--white);
+    pointer-events: none;
+}
+
+.hud-panel {
+    position: absolute;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    pointer-events: auto;
+}
+
+/* Score / stats — top left */
+.hud-stats {
+    top: 20px;
+    left: 20px;
+    min-width: 120px;
+}
+
+.hud-label {
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.hud-value {
+    font-family: var(--font-pixel);
+    font-size: 1.4rem;
+    color: var(--green);
+    line-height: 1;
+    text-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+.hud-sub {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* Live mini leaderboard — top right */
+.hud-leaderboard {
+    top: 20px;
+    right: 20px;
+    min-width: 190px;
+}
+
+.hud-leaderboard-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hud-leaderboard-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.hud-leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+.hud-leaderboard-list .rank {
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    color: var(--pink);
+    width: 16px;
+    flex-shrink: 0;
+}
+
+.hud-leaderboard-list .name {
+    flex: 1;
+    color: var(--white);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hud-leaderboard-list li.is-you {
+    color: var(--green);
+}
+
+.hud-leaderboard-list li.is-you .name {
+    color: var(--green);
+}
+
+/* Player name tag — bottom left */
+.hud-player {
+    bottom: 20px;
+    left: 20px;
+    font-family: var(--font-pixel);
+    font-size: 0.65rem;
+    color: var(--white);
+}
+
+/* Controls hint — bottom right, reuses .key from the how-to-play page */
+.hud-controls {
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hud-controls .key {
+    width: 26px;
+    height: 26px;
+    font-size: 0.5rem;
+}
+
+.hud-controls-divider {
+    margin: 0 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* Overlays — pause menu, connection status, etc. */
+.game-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 9, 15, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.game-overlay[hidden] {
+    display: none;
+}
+
+.overlay-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 40px 48px;
+    text-align: center;
+    min-width: 280px;
+}
+
+.overlay-title {
+    font-family: var(--font-pixel);
+    font-size: 1rem;
+    color: var(--green);
+    text-shadow: 0 0 20px var(--green), 0 0 50px rgba(0, 255, 136, 0.3);
+    margin-bottom: 24px;
+}
+
+.overlay-btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-pixel);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--border);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.overlay-btn.primary {
+    background: var(--green);
+    color: var(--bg);
+    border-color: var(--green);
+    box-shadow: 0 0 24px rgba(0, 255, 136, 0.4);
+}
+
+.overlay-btn.primary:hover {
+    background: transparent;
+    color: var(--green);
+}
+
+.overlay-btn.secondary:hover {
+    border-color: var(--pink);
+    color: var(--pink);
 }

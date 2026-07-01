@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
@@ -50,7 +50,7 @@
             />
         </div>
 
-        <a href="join.html" class="play-btn">
+        <a href="html/game.html" id="playBtn" class="play-btn">
             <span class="btn-label">PLAY NOW</span>
             <span class="btn-arrow">▶</span>
         </a>
@@ -78,5 +78,34 @@
 <footer class="footer">
     <p class="footer-text">Made by <span class="footer-name">Denis</span> &amp; <span class="footer-name">Leonardo</span> · Software Development 2026</p>
 </footer>
+
+<script>
+    // Validates the name field, then hands off to the game page.
+    // The name is passed via query string for now; once Leo's WebSocket
+    // server is live, this can instead be sent as the first message
+    // over the socket on connect.
+    const playBtn = document.getElementById('playBtn');
+    const nameInput = document.getElementById('playerName');
+
+    playBtn.addEventListener('click', (e) => {
+        const name = nameInput.value.trim();
+
+        if (!name) {
+            e.preventDefault();
+            nameInput.focus();
+            nameInput.classList.add('invalid');
+            return;
+        }
+
+        nameInput.classList.remove('invalid');
+        // override the plain href with the name attached
+        playBtn.href = `html/game.html?name=${encodeURIComponent(name)}`;
+    });
+
+    // clear the error state as soon as they start typing again
+    nameInput.addEventListener('input', () => {
+        nameInput.classList.remove('invalid');
+    });
+</script>
 </body>
 </html>
